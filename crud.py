@@ -1,4 +1,4 @@
-def     create_table():
+def     create_table()-> list:
     colTableArray = []
     
     test = ()
@@ -6,18 +6,34 @@ def     create_table():
     colNbr = int(input("How many columns you need?: "))
     print("Registering the columns in your table now...")
     for i in range(colNbr):
-        elem = input(f"column[{i}]:")
-        colTableArray.append(elem)
+        colElem = input(f"columnName[{i+1}]:")
+        colTableArray.append(colElem)
+        colType = input(f"columnType[{i + 1}]:")
+        colTableArray.append(colType)  
+        
         
     print("---debug---")
     print(f"tableName: {tableName}")
     print(f"colTableArray: {colTableArray}")
     
+    return colTableArray
+        
         
 def     main():
-    print("entry pgm...")
+    #create_table()
+    tableArray = [
+        ["Worker", [(int, "id"), (str, "name"), (bool, "isWorking")]],
+        ["Animal", [(int, "id"), (str, "type"), (str, "color")]]
+    ]
     
-    create_table()
+    print(f"exemple natif: {tableArray}")
+    #tableArray = create_table()
+    #print(f"exemple natif: {tableArray}")
 
+    test = "True"
+    test = bool(test)
+    
+    print(f"checkType:{type(test)}")
+    
 if(__name__ == "__main__"):
     main()
