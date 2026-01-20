@@ -20,6 +20,8 @@ def     create_table()-> list:
         
         
 def     main():
+    
+    
     #create_table()
     tableArray = [
         ["Worker", [(int, "id"), (str, "name"), (bool, "isWorking")]],
