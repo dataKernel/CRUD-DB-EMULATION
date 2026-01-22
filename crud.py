@@ -23,19 +23,25 @@ def     main():
     
     
     #create_table()
-    tableArray = [
+    tableStructArray = [
         ["Worker", [(int, "id"), (str, "name"), (bool, "isWorking")]],
         ["Animal", [(int, "id"), (str, "type"), (str, "color")]]
     ]
     
-    print(f"exemple natif: {tableArray}")
+    tableDataArray = [
+        [
+            [0, "lancelot", True],
+            [1, "olivier", False]
+        ],
+        [
+            [0, "dog", "white"]
+        ]
+    ]
+    
+    print(f"(d)tableStructArray: {tableStructArray}")
+    print(f"(d)tableDataArray de table Worker de id 1: {tableDataArray[0][1]}")
     #tableArray = create_table()
     #print(f"exemple natif: {tableArray}")
-
-    test = "True"
-    test = bool(test)
-    
-    print(f"checkType:{type(test)}")
     
 if(__name__ == "__main__"):
     main()
