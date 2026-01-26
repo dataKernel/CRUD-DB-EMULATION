@@ -23,23 +23,23 @@ def     main():
     
     
     #create_table()
-    tableStructArray = [
-        ["Worker", [(int, "id"), (str, "name"), (bool, "isWorking")]],
-        ["Animal", [(int, "id"), (str, "type"), (str, "color")]]
-    ]
+    #restructuring table with dicos
+    tableArray = {
+        "classTable":
+        {
+          'id': 0,
+          'name': "rogue",
+          'active': True  
+        },
+        "animalTable": 
+        {
+            'id': 0,
+            'type': "dog",
+            'color': "black"
+        }
+    }
     
-    tableDataArray = [
-        [
-            [0, "lancelot", True],
-            [1, "olivier", False]
-        ],
-        [
-            [0, "dog", "white"]
-        ]
-    ]
-    
-    print(f"(d)tableStructArray: {tableStructArray}")
-    print(f"(d)tableDataArray de table Worker de id 1: {tableDataArray[0][1]}")
+    print(f"tableArray: {tableArray}")
     #tableArray = create_table()
     #print(f"exemple natif: {tableArray}")
     
