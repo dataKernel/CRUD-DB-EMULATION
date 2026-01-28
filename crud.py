@@ -11,7 +11,6 @@ def     create_table()-> list:
         colType = input(f"columnType[{i + 1}]:")
         colTableArray.append(colType)  
         
-        
     print("---debug---")
     print(f"tableName: {tableName}")
     print(f"colTableArray: {colTableArray}")
@@ -24,16 +23,20 @@ def     main():
     
     #create_table()
     #restructuring table with dicos
-    tableArray = {
+    tableArray = 
+    {
         "classTable":
         {
-          'id': 0,
-          'name': "rogue",
-          'active': True  
+            'struct': ["id", "name", "active"],
+            'data': [
+                {'id': 0, 'name': "rogue", 'active': True},
+                {'id': 1, 'name': "warrior", 'active': False}
+            ]
         },
         "animalTable": 
         {
             'id': 0,
+            'name': "medor",
             'type': "dog",
             'color': "black"
         }
