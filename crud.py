@@ -50,7 +50,7 @@ def     main():
                 }
             ]
         }
-    }
+    
     
     print(f"tableArray:{tableArray}")
     print(f"classTable:{tableArray['classTable']}")
