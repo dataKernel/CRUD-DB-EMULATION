@@ -1,21 +1,27 @@
 def     create_table()-> list:
-    colTableArray = []
+    table = {}
     
-    test = ()
     tableName = input("What is your table name? :")
     colNbr = int(input("How many columns you need?: "))
+    table = {
+        tableName: 
+        {
+            'struct': [],
+            'data': []         
+        }
+    }
     print("Registering the columns in your table now...")
     for i in range(colNbr):
-        colElem = input(f"columnName[{i+1}]:")
-        colTableArray.append(colElem)
+        colName = input(f"columnName[{i+1}]:")
         colType = input(f"columnType[{i + 1}]:")
-        colTableArray.append(colType)  
+        
+        pair = (colName, colType)#tuple pour les éléments de struct à envoyer dans la liste
+        table[tableName]['struct'].append(pair)#ajout du tupple dans la clef struct de la table
         
     print("---debug---")
-    print(f"tableName: {tableName}")
-    print(f"colTableArray: {colTableArray}")
+    print(f"table: {table}")
     
-    return colTableArray
+    return table
         
         
 def     main():    
@@ -24,7 +30,7 @@ def     main():
     tableArray = {
         'classTable':
         {
-            'struct': ["id", "name", "active"],
+            'struct': [("id", int), ("name", str), ("active", bool)],
             'data': [
                 {
                     'id': 0, 
@@ -37,30 +43,10 @@ def     main():
                     'active': False
                 }
             ]
-        },
-        'animalTable': 
-        {
-            'struct': ["id", "type", "color", "playful"],
-            'data': [
-                {
-                    'id': 0, 
-                    'type': "cat", 
-                    'color': "white", 
-                    'playful': True
-                }
-            ]
         }
+    }
     
-    
-    print(f"tableArray:{tableArray}")
-    print(f"classTable:{tableArray['classTable']}")
-    for tableName in tableArray:
-        print(f"tableName:{tableName}")
-    for tableName in tableArray:
-        print(f"elems from struct: {tableName}")
-        print("-------------------------------")
-        for elem in tableArray[tableName]['struct']:
-            print(f"elem:{elem}")
+    create_table()
             
             
 if(__name__ == "__main__"):
