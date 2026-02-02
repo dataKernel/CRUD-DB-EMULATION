@@ -40,22 +40,6 @@ def     main():
     #create_table()
     #restructuring table with dicos
     tableArray = {
-        'classTable':
-        {
-            'struct': [("id", int), ("name", str), ("active", bool)],
-            'data': [
-                {
-                    'id': 0, 
-                    'name': "rogue", 
-                    'active': True
-                },
-                {
-                    'id': 1, 
-                    'name': "warrior", 
-                    'active': False
-                }
-            ]
-        }
     }
     
     create_table()
