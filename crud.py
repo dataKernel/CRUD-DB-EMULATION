@@ -29,10 +29,11 @@ def     create_table(tableArray:dict)-> list:#penser a gere un CREATE TABLE(just
 
 def     insert_table(table:dict, elemStr:str)-> None:
     elemsArray = elemStr.split(' ')
+    structElemArray = table['struct'] #on recup la liste de tupples de struct via un alias 
     data = {} #dico vide pour recevoir les datas
-    structElemArray = table['struct'] #on recup la liste de tupples de struct via un alias
     for i in range(len(table['struct'])):
-        data[structElemArray[i][0]] = elemsArray[i] #on stocke chaque str dans chaque clef de struct de table dans le dico data
+        elemsArray[i] = structElemArray[i][1](elemsArray[i]) #typecast via la struct de la table
+        data[structElemArray[i][0]] = elemsArray[i] #on stocke chaque elem avec la clef struct de table dans le dico data
     table['data'].append(data)
         
 def     main():    
@@ -47,9 +48,7 @@ def     main():
     }
     
     insert_table(tableArray['perso'], "0 ragnar warrior 100 True")
-    
     print(tableArray)
-            
             
 if(__name__ == "__main__"):
     main()
