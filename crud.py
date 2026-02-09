@@ -1,3 +1,5 @@
+from typing import Tuple
+
 def     mapping_types(elem):
     map = {
         'int': int,
@@ -8,9 +10,30 @@ def     mapping_types(elem):
     
     return map[elem]
 
-def     create_table(tableArray:dict)-> list:#penser a gere un CREATE TABLE(juste cree la table et gere le nom de table apres la commande)
-                              #ou on fait CREATE TABLE tableName(on recup largu qu'on donne)
-    tableName = input("What is your table name? :")
+def     gen_cmd_and_table_array()-> Tuple[dict, dict]:
+    cmdArray = {
+        'CREATE':
+        {
+            'args': ["Mob"],
+            'func': create_table
+        },
+        'INSERT':
+        {
+            'args': ["Character", "0 Spartacus warrior 100 230 True"],
+            'func': insert_table
+        }
+    }
+    tableArray = {
+        'Character':
+        {
+            'struct': [("id", int), ("name", str), ("class", str), ("hp", int), ("dmg", int), ("active", bool)],
+            'data': []
+        },
+    }
+    
+    return (cmdArray, tableArray)
+
+def     create_table(tableArray:dict, tableName:str)-> list:
     colNbr = int(input("How many columns you need?: "))
     table = {
         'struct': [],
@@ -38,24 +61,10 @@ def     insert_table(table:dict, elemStr:str)-> None:
       
         
 def     main():
-    cmdCreate = "CREATE Toto"
-    cmdInsertAuto = "INSERT AUTO INTO Toto" 
-    arrayWords = cmdCreate.split()
+    cmdArray, tableArray = gen_cmd_and_table_array()
     
+    print(f"cmdArray: {cmdArray}")
+    print(f"tableArray: {tableArray}")
     
-    if arrayWords[0].isupper():
-        print("OK")
-    else:
-        print("KO")
-    #create_table()
-    #restructuring table with dicos
-    tableArray = {
-        'perso':
-        {
-            'struct': [("id", int), ("name", str), ("class", str), ("dmg", int), ("active", bool)],
-            'data': []
-        }
-    }
-            
 if(__name__ == "__main__"):
     main()
