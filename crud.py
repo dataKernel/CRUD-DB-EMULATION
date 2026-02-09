@@ -35,8 +35,18 @@ def     insert_table(table:dict, elemStr:str)-> None:
         elemsArray[i] = structElemArray[i][1](elemsArray[i]) #typecast via la struct de la table
         data[structElemArray[i][0]] = elemsArray[i] #on stocke chaque elem avec la clef struct de table dans le dico data
     table['data'].append(data)
+      
         
-def     main():    
+def     main():
+    cmdCreate = "CREATE Toto"
+    cmdInsertAuto = "INSERT AUTO INTO Toto" 
+    arrayWords = cmdCreate.split()
+    
+    
+    if arrayWords[0].isupper():
+        print("OK")
+    else:
+        print("KO")
     #create_table()
     #restructuring table with dicos
     tableArray = {
@@ -46,9 +56,6 @@ def     main():
             'data': []
         }
     }
-    
-    insert_table(tableArray['perso'], "0 ragnar warrior 100 True")
-    print(tableArray)
             
 if(__name__ == "__main__"):
     main()
