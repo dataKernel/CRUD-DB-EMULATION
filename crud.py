@@ -55,14 +55,14 @@ def     create_table(tableArray:dict, tableName:str)-> list:
         table['struct'].append(pair)#ajout du tupple dans la clef struct de la table
         tableArray[tableName] = table
 
-def     insert_table(tableArray:dict, elemStr:str)-> None:
+def     insert_table(table:dict, elemStr:str)-> None:
     elemsArray = elemStr.split(' ')
-    structElemArray = tableArray['struct'] #on recup la liste de tupples de struct via un alias 
+    structElemArray = table['struct'] #on recup la liste de tupples de struct via un alias 
     data = {} #dico vide pour recevoir les datas
     for i in range(len(tableArray['struct'])):
         elemsArray[i] = structElemArray[i][1](elemsArray[i]) #typecast via la struct de la table
         data[structElemArray[i][0]] = elemsArray[i] #on stocke chaque elem avec la clef struct de table dans le dico data
-    tableArray['data'].append(data)
+    table['data'].append(data)
 
 def     delete_table():
     pass  
@@ -82,3 +82,6 @@ def     main():
         
 if(__name__ == "__main__"):
     main()
+    
+    
+    return 0
